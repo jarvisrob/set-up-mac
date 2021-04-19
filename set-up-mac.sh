@@ -88,13 +88,14 @@ echo "Installing PowerShell Core. You will be prompted for root password."
 brew cask install powershell
 
 # Productivity
-brew cask install microsoft-teams
+# brew cask install microsoft-teams
 brew cask install alfred
 brew cask install google-chrome
 brew cask install firefox
 brew cask install dropbox
-brew cask install cisco-proximity
-brew cask install webex-teams
+brew cask install zoom
+# brew cask install cisco-proximity
+# brew cask install webex-teams
 brew cask install balenaetcher
 
 # R
