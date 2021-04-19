@@ -156,7 +156,6 @@ brew install hugo
 brew cask install spotify
 
 # Mac tools
-brew cask install scroll-reverser
 brew cask install sizeup
 
 # Homebrew installations complete
