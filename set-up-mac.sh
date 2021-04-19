@@ -248,6 +248,10 @@ echo "... Done"
 # code --install-extension <extension(s?)>
 
 
+# Azure CLI extensions
+az extension add -n azure-cli-ml
+
+
 # Fonts
 brew tap homebrew/cask-fonts
 brew cask install font-meslo-nerd-font
