@@ -147,9 +147,7 @@ brew install azure-cli
 brew cask install microsoft-azure-storage-explorer
 
 # SQL
-# Still thinking these over, uncomment when ready
-# brew install postgresql
-# brew cask install postgres
+# None at the moment
 
 # Blogging
 brew install hugo
