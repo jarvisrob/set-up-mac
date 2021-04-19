@@ -70,7 +70,6 @@ brew install tmux
 brew install tree
 brew install wget
 brew install jq
-brew install rsync
 
 # Terminals (need to decide on which terminal to use, go with both for now)
 brew cask install iterm2
@@ -82,7 +81,7 @@ pip install --upgrade pip
 
 # Dev tools
 brew install git
-brew install bash-git-prompt
+# brew cask install fork
 brew cask install docker
 echo "Installing PowerShell Core. You will be prompted for root password."
 brew cask install powershell
@@ -144,6 +143,7 @@ brew cask install azure-data-studio
 # Cloud command-line interfaces and tools
 brew install awscli
 brew install azure-cli
+pip install databricks-cli
 brew cask install microsoft-azure-storage-explorer
 
 # SQL
