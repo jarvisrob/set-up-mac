@@ -244,6 +244,10 @@ git config --global alias.ds 'diff --staged'
 echo "... Done"
 
 
+# VS Code extensions
+# code --install-extension <extension(s?)>
+
+
 # Fonts
 brew tap homebrew/cask-fonts
 brew cask install font-meslo-nerd-font
