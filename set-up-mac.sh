@@ -134,9 +134,10 @@ brew install node
 
 # Text editors and IDEs
 brew cask install visual-studio-code
-brew cask install sublime-text
 brew cask install rstudio
 brew cask install pycharm
+brew install --cask datagrip
+brew install --cask intellij-idea
 brew cask install azure-data-studio
 
 # Cloud command-line interfaces and tools
