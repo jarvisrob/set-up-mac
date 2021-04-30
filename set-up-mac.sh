@@ -158,6 +158,12 @@ brew cask install spotify
 # Mac tools
 brew cask install sizeup
 
+# Fonts and icons
+brew tap homebrew/cask-fonts
+# brew cask install font-meslo-nerd-font
+brew cask install font-hack-nerd-font
+brew cask install font-fontawesome
+
 # Homebrew installations complete
 brew cleanup
 echo "Homebrew software installations complete"
