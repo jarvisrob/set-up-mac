@@ -76,7 +76,7 @@ brew install wget
 brew install jq
 
 # Terminal
-brew cask install iterm2
+brew install --cask iterm2
 
 # Python (Homebrew version)
 brew install python
@@ -85,32 +85,32 @@ pip install --upgrade pip
 # Dev tools
 brew install git
 brew install --cask sourcetree
-brew cask install docker
+brew install --cask docker
 echo "Installing PowerShell Core. You will be prompted for root password."
-brew cask install powershell
+brew install --cask powershell
 
 # Productivity
-brew cask install alfred
+brew install --cask alfred
 brew install --cask lastpass
-brew cask install google-chrome
-brew cask install firefox
-brew cask install dropbox
+brew install --cask google-chrome
+brew install --cask firefox
+brew install --cask dropbox
 brew install --cask onedrive
 brew install --cask google-drive
-brew cask install balenaetcher
+brew install --cask balenaetcher
 
 # Collaboration/meetings
 brew install --cask slack
-brew cask install zoom
+brew install --cask zoom
 
 # R
 
 # XQuartz is required for R packages that use X11, which is no longer installed on macOS
 echo "Installing XQuartz. You will be prompted for root password."
-brew cask install xquartz
+brew install --cask xquartz
 
 # R.app is the macOS version of CRAN-R
-brew cask install r
+brew install --cask r
 
 # Linking the BLAS (vecLib) from Apple's Accelerate Framework to make R run multi-threaded where it can by default
 # https://developer.apple.com/documentation/accelerate/blas
@@ -133,18 +133,18 @@ echo "  $ ln -sf /Library/Frameworks/R.framework/Versions/Current/Resources/lib/
 brew install node
 
 # Text editors and IDEs
-brew cask install visual-studio-code
-brew cask install rstudio
-brew cask install pycharm
+brew install --cask visual-studio-code
+brew install --cask rstudio
+brew install --cask pycharm
 brew install --cask datagrip
 brew install --cask intellij-idea
-brew cask install azure-data-studio
+brew install --cask azure-data-studio
 
 # Cloud command-line interfaces and tools
 brew install awscli
 brew install azure-cli
 pip install databricks-cli
-brew cask install microsoft-azure-storage-explorer
+brew install --cask microsoft-azure-storage-explorer
 
 # SQL
 # None at the moment
@@ -153,16 +153,16 @@ brew cask install microsoft-azure-storage-explorer
 brew install hugo
 
 # Misc
-brew cask install spotify
+brew install --cask spotify
 
 # Mac tools
-brew cask install sizeup
+brew install --cask sizeup
 
 # Fonts and icons
 brew tap homebrew/cask-fonts
-# brew cask install font-meslo-nerd-font
-brew cask install font-hack-nerd-font
-brew cask install font-fontawesome
+# brew install --cask font-meslo-nerd-font
+brew install --cask font-hack-nerd-font
+brew install --cask font-fontawesome
 
 # Homebrew installations complete
 brew cleanup
