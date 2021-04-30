@@ -75,9 +75,8 @@ brew install tree
 brew install wget
 brew install jq
 
-# Terminals (need to decide on which terminal to use, go with both for now)
+# Terminal
 brew cask install iterm2
-brew cask install hyper
 
 # Python (Homebrew version)
 brew install python
