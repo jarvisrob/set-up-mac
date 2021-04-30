@@ -84,7 +84,7 @@ pip install --upgrade pip
 
 # Dev tools
 brew install git
-# brew cask install fork
+brew install --cask sourcetree
 brew cask install docker
 echo "Installing PowerShell Core. You will be prompted for root password."
 brew cask install powershell
