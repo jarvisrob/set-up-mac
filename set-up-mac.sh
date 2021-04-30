@@ -129,12 +129,6 @@ echo "  $ ln -sf /Library/Frameworks/R.framework/Versions/Current/Resources/lib/
 
 # Not yet sure if need to do anything about linknig the LAPACK
 
-# Microsoft R Open
-# Not sure if can be installed side-by-side with other R, ambiguous wording on installation site
-# https://mran.microsoft.com/documents/rro/installation#revorinst-osx
-# Uncomment when/if decide want it installed too
-# brew cask install microsoft-r-open
-
 # Node.js (required for JupyterLab extensions)
 brew install node
 
