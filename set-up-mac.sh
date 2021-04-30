@@ -350,9 +350,11 @@ defaults write com.apple.TextEdit RichText -int 0
 
 
 echo "Screen saver password settings"
-# Require password immediately after sleep or screen saver begins"
-defaults write com.apple.screensaver askForPassword -int 1
+# Require password immediately after sleep or screen saver begins
+# Start screen saver after 5 mins of idle
+defaults write com.apple.screensaver askForPassword -bool true
 defaults write com.apple.screensaver askForPasswordDelay -int 0
+defaults -currentHost write com.apple.screensaver idleTime 300
 
 
 echo "Screenshot settings"
