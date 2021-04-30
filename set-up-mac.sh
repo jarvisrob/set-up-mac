@@ -40,7 +40,11 @@ EOT
 ssh-add -K ~/.ssh/id_rsa
 
 
-## Install Homebrew itself
+# Xcode
+echo "Installing Xcode command-line tools ..."
+xcode-select —-install
+
+# Install Homebrew itself
 echo "Installing Homebrew ..."
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
