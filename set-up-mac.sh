@@ -258,23 +258,27 @@ echo "... Done"
 az extension add -n azure-cli-ml
 
 
-# Fonts
-brew tap homebrew/cask-fonts
-brew cask install font-meslo-nerd-font
+# Zsh extensions
+echo "Installing Zsh extensions ..."
+wget https://raw.githubusercontent.com/rupa/z/master/z.sh -P /usr/local/etc/profile.d
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 
+echo "Installing terminal prompt and styles ..."
+npm install --global pure-prompt
+sudo gem install colorls
 
 # Oh My Zsh
-echo 'Installing Oh My Zsh'
-wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -P ~/tmp/ohmyzsh
-sh ~/tmp/ohmyzsh/install.sh --unattended
-# --unattended: sets both CHSH and RUNZSH to 'no
-#   CHSH    - 'no' means the installer will not change the default shell (default: yes)
-#   RUNZSH  - 'no' means the installer will not run zsh after the install (default: yes)
-# See the comments for the script itself at: https://github.com/robbyrussell/oh-my-zsh/blob/master/tools/install.sh
-# Basically, you want to use this argument when installing from a script where you also install other things
-# We'll change the default shell to Zsh later and we don't want to launch a new shell straight away--
-# we want to keep doing other stuff
-rm -rf ~/tmp/ohmyzsh
+# echo 'Installing Oh My Zsh'
+# wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -P ~/tmp/ohmyzsh
+# sh ~/tmp/ohmyzsh/install.sh --unattended
+# # --unattended: sets both CHSH and RUNZSH to 'no
+# #   CHSH    - 'no' means the installer will not change the default shell (default: yes)
+# #   RUNZSH  - 'no' means the installer will not run zsh after the install (default: yes)
+# # See the comments for the script itself at: https://github.com/robbyrussell/oh-my-zsh/blob/master/tools/install.sh
+# # Basically, you want to use this argument when installing from a script where you also install other things
+# # We'll change the default shell to Zsh later and we don't want to launch a new shell straight away--
+# # we want to keep doing other stuff
+# rm -rf ~/tmp/ohmyzsh
 
 
 # macOS settings
