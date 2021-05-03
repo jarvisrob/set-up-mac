@@ -69,8 +69,11 @@ brew install zsh
 echo '/usr/local/bin/zsh' | sudo tee -a /etc/shells 1>/dev/null
 
 # Terminal tools and commands
-brew install bash-completion
+brew install bash-completion@2
 brew install zsh-completions
+brew install zsh-syntax-highlighting
+brew install zsh-autosuggestions
+brew install z
 brew install tmux
 brew install tree
 brew install wget
