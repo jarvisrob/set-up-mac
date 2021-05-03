@@ -107,31 +107,31 @@ brew install --cask firefox
 brew install --cask slack
 brew install --cask zoom
 
-# R
+# # R, not yet M1 supported
 
-# XQuartz is required for R packages that use X11, which is no longer installed on macOS
-echo "Installing XQuartz. You will be prompted for root password."
-brew install --cask xquartz
+# # XQuartz is required for R packages that use X11, which is no longer installed on macOS
+# echo "Installing XQuartz. You will be prompted for root password."
+# brew install --cask xquartz
 
-# R.app is the macOS version of CRAN-R
-brew install --cask r
+# # R.app is the macOS version of CRAN-R
+# brew install --cask r
 
-# Linking the BLAS (vecLib) from Apple's Accelerate Framework to make R run multi-threaded where it can by default
-# https://developer.apple.com/documentation/accelerate/blas
+# # Linking the BLAS (vecLib) from Apple's Accelerate Framework to make R run multi-threaded where it can by default
+# # https://developer.apple.com/documentation/accelerate/blas
 
-# The approach for linking the BLAS provided on CRAN **doesn't work**, since libRblas.vecLib.dylib does not exist (at least not in that location)
-# https://cran.r-project.org/bin/macosx/RMacOSX-FAQ.html#Which-BLAS-is-used-and-how-can-it-be-changed_003f
+# # The approach for linking the BLAS provided on CRAN **doesn't work**, since libRblas.vecLib.dylib does not exist (at least not in that location)
+# # https://cran.r-project.org/bin/macosx/RMacOSX-FAQ.html#Which-BLAS-is-used-and-how-can-it-be-changed_003f
 
-# Instead this works to link the Apple Accelerate BLAS to R
-# Links for the current version of R, but since this is set-up from scratch there is only one version installed
-echo "Linking version of R just installed to the BLAS in the Apple Accelerate Framework"
-ln -sf \
-  /System/Library/Frameworks/Accelerate.framework/Versions/Current/Frameworks/vecLib.framework/Versions/Current/libBLAS.dylib \
-  /Library/Frameworks/R.framework/Versions/Current/Resources/lib/libRblas.dylib
-echo "To restore the default BLAS that comes with R use:"
-echo "  $ ln -sf /Library/Frameworks/R.framework/Versions/Current/Resources/lib/libRblas.0.dylib /Library/Frameworks/R.framework/Versions/Current/Resources/lib/libRblas.dylib"
+# # Instead this works to link the Apple Accelerate BLAS to R
+# # Links for the current version of R, but since this is set-up from scratch there is only one version installed
+# echo "Linking version of R just installed to the BLAS in the Apple Accelerate Framework"
+# ln -sf \
+#   /System/Library/Frameworks/Accelerate.framework/Versions/Current/Frameworks/vecLib.framework/Versions/Current/libBLAS.dylib \
+#   /Library/Frameworks/R.framework/Versions/Current/Resources/lib/libRblas.dylib
+# echo "To restore the default BLAS that comes with R use:"
+# echo "  $ ln -sf /Library/Frameworks/R.framework/Versions/Current/Resources/lib/libRblas.0.dylib /Library/Frameworks/R.framework/Versions/Current/Resources/lib/libRblas.dylib"
 
-# Not yet sure if need to do anything about linknig the LAPACK
+# # Not yet sure if need to do anything about linknig the LAPACK
 
 # Node.js (required for JupyterLab extensions)
 brew install node
@@ -173,58 +173,58 @@ brew cleanup
 echo "Homebrew software installations complete"
 
 
-# Conda
-echo "Installing Miniconda using their bash script (not Homebrew). You will be prompted multiple times."
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -P ~/tmp
-bash ~/tmp/Miniconda3-latest-MacOSX-x86_64.sh
-rm ~/tmp/Miniconda3-latest-MacOSX-x86_64.sh
+# # Conda, not yet M1 supported
+# echo "Installing Miniconda using their bash script (not Homebrew). You will be prompted multiple times."
+# wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -P ~/tmp
+# bash ~/tmp/Miniconda3-latest-MacOSX-x86_64.sh
+# rm ~/tmp/Miniconda3-latest-MacOSX-x86_64.sh
 
-# Conda adds content to .bash_profile, but we want to manually call that when turning Conda on
-# So put all that stuff into another script, and we'll get .bash_profile later
-mv ~/.bash_profile ~/bin/conda-on-bash.sh
-echo "echo \"Conda ready to use\"" >> ~/bin/conda-on-bash.sh
+# # Conda adds content to .bash_profile, but we want to manually call that when turning Conda on
+# # So put all that stuff into another script, and we'll get .bash_profile later
+# mv ~/.bash_profile ~/bin/conda-on-bash.sh
+# echo "echo \"Conda ready to use\"" >> ~/bin/conda-on-bash.sh
 
-# Since we're also using Zsh, we want a version of this script works in Zsh
-sed 's/bash/zsh/' ~/bin/conda-on-bash.sh > ~/bin/conda-on-zsh.sh
+# # Since we're also using Zsh, we want a version of this script works in Zsh
+# sed 's/bash/zsh/' ~/bin/conda-on-bash.sh > ~/bin/conda-on-zsh.sh
 
-# Turn on Conda to configure and to install some stuff
-source ~/bin/conda-on-bash.sh
+# # Turn on Conda to configure and to install some stuff
+# source ~/bin/conda-on-bash.sh
 
-conda update conda
-conda --version
+# conda update conda
+# conda --version
 
-echo "Setting up Conda and Jupyter, including sandbox environment(s) for data science ..."
+# echo "Setting up Conda and Jupyter, including sandbox environment(s) for data science ..."
 
-# JupyterLab, installed into base env, configured so it can work across Conda environments
-# At the moment, JupyterLab needs to be installed from conda-forge
-conda activate base
-conda install --channel conda-forge --name base --yes jupyterlab
-conda install --name base --yes nb_conda_kernels
+# # JupyterLab, installed into base env, configured so it can work across Conda environments
+# # At the moment, JupyterLab needs to be installed from conda-forge
+# conda activate base
+# conda install --channel conda-forge --name base --yes jupyterlab
+# conda install --name base --yes nb_conda_kernels
 
-# Sandbox Python environment
-wget https://raw.githubusercontent.com/jarvisrob/set-up-mac/master/python-sandbox-env.yml -P ~/tmp
-conda env create --file ~/tmp/python-sandbox-env.yml
-conda activate base
-rm ~/tmp/python-sandbox-env.yml
+# # Sandbox Python environment
+# wget https://raw.githubusercontent.com/jarvisrob/set-up-mac/master/python-sandbox-env.yml -P ~/tmp
+# conda env create --file ~/tmp/python-sandbox-env.yml
+# conda activate base
+# rm ~/tmp/python-sandbox-env.yml
 
-# Install IRkernel so can use R in Jupyter
-# This needs to be done while conda base environment is active, because it needs to see the Jupyter installation
-conda activate base
-wget https://raw.githubusercontent.com/jarvisrob/set-up-mac/master/install-irkernel.R -P ~/tmp
-Rscript --verbose --vanilla ~/tmp/install-irkernel.R
-rm ~/tmp/install-irkernel.R
+# # Install IRkernel so can use R in Jupyter
+# # This needs to be done while conda base environment is active, because it needs to see the Jupyter installation
+# conda activate base
+# wget https://raw.githubusercontent.com/jarvisrob/set-up-mac/master/install-irkernel.R -P ~/tmp
+# Rscript --verbose --vanilla ~/tmp/install-irkernel.R
+# rm ~/tmp/install-irkernel.R
 
-# Clean up conda
-conda activate base
-conda clean --all --yes
+# # Clean up conda
+# conda activate base
+# conda clean --all --yes
 
-echo "List of conda environments now on your system"
-conda info --envs
+# echo "List of conda environments now on your system"
+# conda info --envs
 
-# Turn off conda
-wget https://raw.githubusercontent.com/jarvisrob/set-up-mac/master/conda-off-bash.sh -P ~/bin
-wget https://raw.githubusercontent.com/jarvisrob/set-up-mac/master/conda-off-zsh.sh -P ~/bin
-source ~/bin/conda-off-bash.sh
+# # Turn off conda
+# wget https://raw.githubusercontent.com/jarvisrob/set-up-mac/master/conda-off-bash.sh -P ~/bin
+# wget https://raw.githubusercontent.com/jarvisrob/set-up-mac/master/conda-off-zsh.sh -P ~/bin
+# source ~/bin/conda-off-bash.sh
 
 
 # Configure Git
@@ -429,10 +429,10 @@ echo "Downloading .vimrc"
 wget https://raw.githubusercontent.com/jarvisrob/set-up-mac/master/.vimrc -P ~
 cat ~/.vimrc
 
-# .condarc (Conda)
-echo "Downloading .condarc"
-wget https://raw.githubusercontent.com/jarvisrob/set-up-mac/master/.condarc -P ~
-cat ~/.condarc
+# # .condarc (Conda), not yet M1 supported
+# echo "Downloading .condarc"
+# wget https://raw.githubusercontent.com/jarvisrob/set-up-mac/master/.condarc -P ~
+# cat ~/.condarc
 
 # .git-prompt-colors.sh (bash-git-prompt)
 echo "Downloading .git-prompt-colors.sh"
