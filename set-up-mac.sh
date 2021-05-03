@@ -163,8 +163,10 @@ brew install hugo
 # brew install --cask sizeup, not yet M1 supported
 
 # Fonts and icons
+echo "Installing fonts ..."
+echo "Configure fonts in iTerm2 via Preferences > Profiles > Text > Font [> potenitally also Non-ASCII Font]"
 brew tap homebrew/cask-fonts
-# brew install --cask font-meslo-nerd-font
+brew install --cask font-menlo-for-powerline
 brew install --cask font-hack-nerd-font
 brew install --cask font-fontawesome
 
@@ -262,14 +264,18 @@ echo "... Done"
 az extension add -n azure-cli-ml
 
 
-# Zsh extensions
-echo "Installing Zsh extensions ..."
-wget https://raw.githubusercontent.com/rupa/z/master/z.sh -P /usr/local/etc/profile.d
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-
+# Terminal prompt and styles
 echo "Installing terminal prompt and styles ..."
 npm install --global pure-prompt
 sudo gem install colorls
+
+# iTerm2 themes
+echo "Installing iTerm2 themes ..."
+echo "Configure in iTerm2 > Preferences > Profiles > Colors > Color Presets > [Choose theme]."
+# iterm2-snazzy, https://github.com/sindresorhus/iterm2-snazzy
+wget https://github.com/sindresorhus/iterm2-snazzy/raw/main/Snazzy.itermcolors -P ~/tmp
+open ~/tmp/Snazzy.itermcolors
+rm ~/tmp/Snazzy.itermcolors
 
 # Oh My Zsh
 # echo 'Installing Oh My Zsh'
