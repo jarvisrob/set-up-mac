@@ -43,7 +43,7 @@ Host *
 
 EOT
 ssh-add -K ~/.ssh/id_rsa
-
+read -p "Copy key details and then press <return> to continue"
 
 # Install Homebrew itself
 echo "Installing Homebrew ..."
