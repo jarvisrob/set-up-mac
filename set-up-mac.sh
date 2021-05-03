@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 echo "Running script using bash version:"
 echo $BASH_VERSION
 
