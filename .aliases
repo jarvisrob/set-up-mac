@@ -1,3 +1,13 @@
 # Aliases that can be used in all shells
 # Bash/Zsh/other specific aliases aren't here, they are in their .*rc files
-alias ll='ls -lahG'
+
+# Listing files
+# alias ll='ls -lahG'
+alias l="colorls --group-directories-first --almost-all"
+alias ll="colorls --group-directories-first --almost-all --long"
+alias ld="colorls --dirs --almost-all --long"
+alias lf="colorls --files --almost-all --long"
+alias ltree="colorls --group-directories-first --almost-all --tree"
+
+# Calculator with math support
+alias calc="bc -l"
