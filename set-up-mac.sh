@@ -2,11 +2,16 @@
 echo "Running script using bash version:"
 echo $BASH_VERSION
 
-# This is my set-up, my way
 # If you're not me, *really* think before running this script--it's all on you
 
+# Before running, install Xcode command line tools via:
+# $ xcode-select —-install
+
 echo "Shell script to set-up a new Mac"
-echo "You were warned: This is *my* set-up, *my* way!"
+echo "You are warned: This is *my* set-up, *my* way!"
+echo "You must also have already installed Xcode command-line tools with: $ xcode-select —-install"
+
+read -p "Press <return> to continue or ^C to quit now"
 echo "Here we go ..."
 
 
@@ -40,13 +45,9 @@ EOT
 ssh-add -K ~/.ssh/id_rsa
 
 
-# Xcode
-echo "Installing Xcode command-line tools ..."
-xcode-select —-install
-
 # Install Homebrew itself
 echo "Installing Homebrew ..."
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew update
 brew upgrade
 echo "Done ..."
