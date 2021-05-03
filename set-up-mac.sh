@@ -88,20 +88,20 @@ pip install --upgrade pip
 
 # Dev tools
 brew install git
-brew install --cask sourcetree
+# brew install --cask sourcetree, not yet M1 supported
 brew install --cask docker
-echo "Installing PowerShell Core. You will be prompted for root password."
-brew install --cask powershell
+# echo "Installing PowerShell Core. You will be prompted for root password."
+# brew install --cask powershell, not yet M1 supported
 
 # Productivity
 brew install --cask alfred
-brew install --cask lastpass
+# brew install --cask lastpass, not yet M1 supported
 brew install --cask google-chrome
 brew install --cask firefox
-brew install --cask dropbox
-brew install --cask onedrive
-brew install --cask google-drive
-brew install --cask balenaetcher
+# brew install --cask dropbox, not yet M1 supported
+# brew install --cask onedrive, not yet M1 supported
+# brew install --cask google-drive, not yet M1 supported
+# brew install --cask balenaetcher, not yet M1 supported
 
 # Collaboration/meetings
 brew install --cask slack
@@ -138,17 +138,17 @@ brew install node
 
 # Text editors and IDEs
 brew install --cask visual-studio-code
-brew install --cask rstudio
+# brew install --cask rstudio, not yet M1 supported
 brew install --cask pycharm
 brew install --cask datagrip
 brew install --cask intellij-idea
-brew install --cask azure-data-studio
+# brew install --cask azure-data-studio, not yet M1 supported
 
 # Cloud command-line interfaces and tools
 brew install awscli
 brew install azure-cli
 pip install databricks-cli
-brew install --cask microsoft-azure-storage-explorer
+# brew install --cask microsoft-azure-storage-explorer, not yet M1 supported
 
 # SQL
 # None at the moment
@@ -157,10 +157,10 @@ brew install --cask microsoft-azure-storage-explorer
 brew install hugo
 
 # Misc
-brew install --cask spotify
+# brew install --cask spotify, not yet M1 supported
 
 # Mac tools
-brew install --cask sizeup
+# brew install --cask sizeup, not yet M1 supported
 
 # Fonts and icons
 brew tap homebrew/cask-fonts
