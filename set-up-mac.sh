@@ -60,13 +60,13 @@ echo "Installing packages and software using Homebrew ..."
 echo 'Installing the latest version of bash'
 echo 'You will be prompted for root password to add the new version of bash to /etc/shells'
 brew install bash
-echo '/usr/local/bin/bash' | sudo tee -a /etc/shells 1>/dev/null
+echo '/opt/homebrew/bin/bash' | sudo tee -a /etc/shells 1>/dev/null
 
 # Zsh
 echo 'Installing the latest version of Zsh'
 echo 'You will be prompted for root password to add the new version of bash to /etc/shells'
 brew install zsh
-echo '/usr/local/bin/zsh' | sudo tee -a /etc/shells 1>/dev/null
+echo '/opt/homebrew/bin/zsh' | sudo tee -a /etc/shells 1>/dev/null
 
 # Terminal tools and commands
 brew install bash-completion@2
@@ -428,8 +428,8 @@ cat ~/.vimrc
 # cat ~/.condarc
 
 # Make Zsh the default shell
-echo 'Making Zsh the default shell. You will be prompted for root password.'
-chsh -s /usr/local/bin/zsh
+echo 'Making Homebrew installed and updated Zsh the default shell. You will be prompted for root password.'
+chsh -s /opt/hombrew/bin/zsh
 
 
 # End
