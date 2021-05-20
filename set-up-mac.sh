@@ -277,19 +277,6 @@ wget https://github.com/sindresorhus/iterm2-snazzy/raw/main/Snazzy.itermcolors -
 open ~/tmp/Snazzy.itermcolors
 rm ~/tmp/Snazzy.itermcolors
 
-# Oh My Zsh
-# echo 'Installing Oh My Zsh'
-# wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -P ~/tmp/ohmyzsh
-# sh ~/tmp/ohmyzsh/install.sh --unattended
-# # --unattended: sets both CHSH and RUNZSH to 'no
-# #   CHSH    - 'no' means the installer will not change the default shell (default: yes)
-# #   RUNZSH  - 'no' means the installer will not run zsh after the install (default: yes)
-# # See the comments for the script itself at: https://github.com/robbyrussell/oh-my-zsh/blob/master/tools/install.sh
-# # Basically, you want to use this argument when installing from a script where you also install other things
-# # We'll change the default shell to Zsh later and we don't want to launch a new shell straight away--
-# # we want to keep doing other stuff
-# rm -rf ~/tmp/ohmyzsh
-
 
 # macOS settings
 echo "macOS settings being configured"
