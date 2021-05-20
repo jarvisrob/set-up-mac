@@ -440,12 +440,6 @@ cat ~/.vimrc
 # wget https://raw.githubusercontent.com/jarvisrob/set-up-mac/master/.condarc -P ~
 # cat ~/.condarc
 
-# .git-prompt-colors.sh (bash-git-prompt)
-echo "Downloading .git-prompt-colors.sh"
-wget https://raw.githubusercontent.com/jarvisrob/set-up-mac/master/.git-prompt-colors.sh -P ~
-cat ~/.git-prompt-colors.sh
-
-
 # Make Zsh the default shell
 echo 'Making Zsh the default shell. You will be prompted for root password.'
 chsh -s /usr/local/bin/zsh
