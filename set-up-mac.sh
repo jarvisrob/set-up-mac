@@ -368,9 +368,9 @@ echo "Dialog settings"
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 
-echo "SizeUp settings"
-# Start SizeUp at login
-defaults write com.irradiatedsoftware.SizeUp StartAtLogin -bool true
+# echo "SizeUp settings"
+# # Start SizeUp at login
+# defaults write com.irradiatedsoftware.SizeUp StartAtLogin -bool true
 
 
 # Dot files
