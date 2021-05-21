@@ -4,3 +4,5 @@ then
 	source ~/.profile
 fi
 
+# Zsh-specific stuff goes here
+
