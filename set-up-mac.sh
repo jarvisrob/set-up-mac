@@ -68,12 +68,13 @@ echo 'You will be prompted for root password to add the new version of bash to /
 brew install zsh
 echo '/opt/homebrew/bin/zsh' | sudo tee -a /etc/shells 1>/dev/null
 
-# Terminal tools and commands
+# Terminal tools, commands and prompts
 brew install bash-completion@2
 brew install zsh-completions
 brew install zsh-syntax-highlighting
 brew install zsh-autosuggestions
 brew install z
+brew install pure
 brew install tmux
 brew install tree
 brew install wget
@@ -266,7 +267,6 @@ az extension add -n azure-cli-ml
 
 # Terminal prompt and styles
 echo "Installing terminal prompt and styles ..."
-npm install --global pure-prompt
 sudo gem install colorls
 
 # iTerm2 themes
