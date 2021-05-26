@@ -104,6 +104,9 @@ brew install --cask firefox
 # brew install --cask google-drive, not yet M1 supported
 # brew install --cask balenaetcher, not yet M1 supported
 
+# Virtual machines
+brew install --cask parallels
+
 # Collaboration/meetings
 brew install --cask slack
 brew install --cask zoom
