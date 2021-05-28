@@ -23,6 +23,9 @@ zstyle :compinstall filename '~/.zshrc'
 autoload -Uz compinit
 compinit
 
+# Enable menu-highlighting when tab through possible completions/options
+zstyle ':completion:*' menu select
+
 # Use pure-prompt: https://github.com/sindresorhus/pure#getting-started
 autoload -U promptinit
 promptinit
