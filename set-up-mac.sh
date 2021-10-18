@@ -261,7 +261,9 @@ echo "... Done"
 
 
 # VS Code extensions
-# code --install-extension <extension(s?)>
+code --install-extension ms-python.python
+code --install-extension scala-lang.scala
+code --install-extension paiqo.databricks-vscode
 
 
 # Azure CLI extensions
