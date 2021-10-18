@@ -11,3 +11,6 @@ alias ltree="colorls --group-directories-first --almost-all --tree"
 
 # Calculator with math support
 alias calc="bc -l"
+
+# Python virtual environments
+alias virtualenv="pyenv virtualenv"
