@@ -29,7 +29,7 @@ ls -d */
 echo "Generating SSH keys"
 echo "You will be prompted for email, file location (enter for default) and passphrase"
 read -p "Enter SSH key email: " SSH_EMAIL
-ssh-keygen -t rsa -b 4096 -C "$SSH_EMAIL"
+ssh-keygen -t ed25519 -C "$SSH_EMAIL"
 echo "Adding SSH private key to ssh-agent and storing passphrase in keychain"
 echo "You will be prompted for the passphrase again"
 eval "$(ssh-agent -s)"
@@ -37,10 +37,10 @@ cat <<EOT >> ~/.ssh/config
 Host *
 	AddKeysToAgent yes
 	UseKeychain yes
-	IdentityFile ~/.ssh/id_rsa
+	IdentityFile ~/.ssh/id_ed25519
 
 EOT
-ssh-add -K ~/.ssh/id_rsa
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 read -p "Copy key details and then press <return> to continue"
 
 
@@ -149,7 +149,7 @@ git config --global alias.unstage 'reset HEAD --'
 git config --global alias.unmod 'checkout --' 
 git config --global alias.last 'log -1 HEAD' 
 git config --global alias.pub 'push -u origin HEAD' 
-git config --global alias.setemail 'config user.email jarvisrob@users.noreply.github.com' 
+# git config --global alias.setemail 'config user.email jarvisrob@users.noreply.github.com' 
 git config --global alias.cm 'commit -m' 
 git config --global alias.co checkout 
 git config --global alias.cob 'checkout -b' 
