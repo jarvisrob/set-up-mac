@@ -7,22 +7,20 @@ echo $BASH_VERSION
 # Before running, install Xcode command line tools via:
 # $ xcode-select —-install
 
-echo "Shell script to set-up a new Mac"
-echo "You are warned: This is *my* set-up, *my* way!"
-echo "You must also have already installed Xcode command-line tools with: $ xcode-select —-install"
+echo "-- Shell script to set-up a new Mac --"
+echo "IMPORTANT: You are warned - this is *my* set-up, *my* way!"
+echo "IMPORTANT: You must also have *already installed Xcode command-line tools* with: $ xcode-select —-install"
 
 read -p "Press <return> to continue or ^C to quit now"
-echo "Here we go ..."
+
+echo "Ok. Here we go ..."
 
 
 # Make my directories
 echo "Making my directories under HOME (~), i.e. under $HOME"
 mkdir ~/bin
-mkdir ~/blog
-mkdir ~/iso
 mkdir ~/lab
 mkdir ~/tmp
-mkdir ~/vm-share
 echo "Directory structure under HOME (~) is now:"
 ls -d */
 
@@ -44,6 +42,7 @@ Host *
 EOT
 ssh-add -K ~/.ssh/id_rsa
 read -p "Copy key details and then press <return> to continue"
+
 
 # Install Homebrew itself
 echo "Installing Homebrew ..."
@@ -68,6 +67,15 @@ echo 'You will be prompted for root password to add the new version of bash to /
 brew install zsh
 echo '/opt/homebrew/bin/zsh' | sudo tee -a /etc/shells 1>/dev/null
 
+# Python
+brew install python  # Becomes the new default, non-system version
+pip install --upgrade pip
+brew install pyenv
+brew install pyenv-virtualenv
+
+# Git
+brew install git
+
 # Terminal tools, commands and prompts
 brew install bash-completion@2
 brew install zsh-completions
@@ -75,96 +83,43 @@ brew install zsh-syntax-highlighting
 brew install zsh-autosuggestions
 brew install z
 brew install pure
-brew install tmux
 brew install tree
 brew install wget
 brew install jq
-
-# Terminal
+brew install yq
 brew install --cask iterm2
 
-# Python (Homebrew version)
-brew install python
-pip install --upgrade pip
-
 # Dev tools
-brew install git
-# brew install --cask sourcetree, not yet M1 supported
-brew install --cask docker
-# echo "Installing PowerShell Core. You will be prompted for root password."
-# brew install --cask powershell, not yet M1 supported
+brew install terraform
+brew install sqlite
+
+# Command-line interfaces and tools
+brew tap databricks/tap
+brew install databricks
+brew install awscli
+brew install azure-cli
+brew install --cask microsoft-azure-storage-explorer
+
+# Text editors and IDEs
+brew install --cask visual-studio-code
 
 # Productivity
 brew install --cask alfred
-# brew install --cask lastpass, not yet M1 supported
+brew install --cask 1password
 brew install --cask google-chrome
-brew install --cask firefox
-# brew install --cask dropbox, not yet M1 supported
-# brew install --cask onedrive, not yet M1 supported
-# brew install --cask google-drive, not yet M1 supported
-# brew install --cask balenaetcher, not yet M1 supported
-
-# Virtual machines
-brew install --cask parallels
+brew install --cask logi-options+
+brew install --cask meetingbar
+brew install --cask drawio
 
 # Collaboration/meetings
 brew install --cask slack
 brew install --cask zoom
 
-# # R, not yet M1 supported
-
-# # XQuartz is required for R packages that use X11, which is no longer installed on macOS
-# echo "Installing XQuartz. You will be prompted for root password."
-# brew install --cask xquartz
-
-# # R.app is the macOS version of CRAN-R
-# brew install --cask r
-
-# # Linking the BLAS (vecLib) from Apple's Accelerate Framework to make R run multi-threaded where it can by default
-# # https://developer.apple.com/documentation/accelerate/blas
-
-# # The approach for linking the BLAS provided on CRAN **doesn't work**, since libRblas.vecLib.dylib does not exist (at least not in that location)
-# # https://cran.r-project.org/bin/macosx/RMacOSX-FAQ.html#Which-BLAS-is-used-and-how-can-it-be-changed_003f
-
-# # Instead this works to link the Apple Accelerate BLAS to R
-# # Links for the current version of R, but since this is set-up from scratch there is only one version installed
-# echo "Linking version of R just installed to the BLAS in the Apple Accelerate Framework"
-# ln -sf \
-#   /System/Library/Frameworks/Accelerate.framework/Versions/Current/Frameworks/vecLib.framework/Versions/Current/libBLAS.dylib \
-#   /Library/Frameworks/R.framework/Versions/Current/Resources/lib/libRblas.dylib
-# echo "To restore the default BLAS that comes with R use:"
-# echo "  $ ln -sf /Library/Frameworks/R.framework/Versions/Current/Resources/lib/libRblas.0.dylib /Library/Frameworks/R.framework/Versions/Current/Resources/lib/libRblas.dylib"
-
-# # Not yet sure if need to do anything about linknig the LAPACK
-
-# Node.js (required for JupyterLab extensions)
-brew install node
-
-# Text editors and IDEs
-brew install --cask visual-studio-code
-# brew install --cask rstudio, not yet M1 supported
-brew install --cask pycharm
-brew install --cask datagrip
-brew install --cask intellij-idea
-# brew install --cask azure-data-studio, not yet M1 supported
-
-# Cloud command-line interfaces and tools
-brew install awscli
-brew install azure-cli
-pip install databricks-cli
-# brew install --cask microsoft-azure-storage-explorer, not yet M1 supported
-
-# SQL
-# None at the moment
-
-# Blogging
-brew install hugo
-
-# Misc
-# brew install --cask spotify, not yet M1 supported
-
-# Mac tools
-# brew install --cask sizeup, not yet M1 supported
+# MS Office
+brew install --cask microsoft-teams
+brew install --cask microsoft-excel
+brew install --cask microsoft-powerpoint
+brew install --cask microsoft-word
 
 # Fonts and icons
 echo "Installing fonts ..."
@@ -173,64 +128,11 @@ brew tap homebrew/cask-fonts
 brew install --cask font-menlo-for-powerline
 brew install --cask font-hack-nerd-font
 brew install --cask font-fontawesome
+brew install --cask font-fira-code
 
 # Homebrew installations complete
 brew cleanup
 echo "Homebrew software installations complete"
-
-
-# # Conda, not yet M1 supported
-# echo "Installing Miniconda using their bash script (not Homebrew). You will be prompted multiple times."
-# wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -P ~/tmp
-# bash ~/tmp/Miniconda3-latest-MacOSX-x86_64.sh
-# rm ~/tmp/Miniconda3-latest-MacOSX-x86_64.sh
-
-# # Conda adds content to .bash_profile, but we want to manually call that when turning Conda on
-# # So put all that stuff into another script, and we'll get .bash_profile later
-# mv ~/.bash_profile ~/bin/conda-on-bash.sh
-# echo "echo \"Conda ready to use\"" >> ~/bin/conda-on-bash.sh
-
-# # Since we're also using Zsh, we want a version of this script works in Zsh
-# sed 's/bash/zsh/' ~/bin/conda-on-bash.sh > ~/bin/conda-on-zsh.sh
-
-# # Turn on Conda to configure and to install some stuff
-# source ~/bin/conda-on-bash.sh
-
-# conda update conda
-# conda --version
-
-# echo "Setting up Conda and Jupyter, including sandbox environment(s) for data science ..."
-
-# # JupyterLab, installed into base env, configured so it can work across Conda environments
-# # At the moment, JupyterLab needs to be installed from conda-forge
-# conda activate base
-# conda install --channel conda-forge --name base --yes jupyterlab
-# conda install --name base --yes nb_conda_kernels
-
-# # Sandbox Python environment
-# wget https://raw.githubusercontent.com/jarvisrob/set-up-mac/master/python-sandbox-env.yml -P ~/tmp
-# conda env create --file ~/tmp/python-sandbox-env.yml
-# conda activate base
-# rm ~/tmp/python-sandbox-env.yml
-
-# # Install IRkernel so can use R in Jupyter
-# # This needs to be done while conda base environment is active, because it needs to see the Jupyter installation
-# conda activate base
-# wget https://raw.githubusercontent.com/jarvisrob/set-up-mac/master/install-irkernel.R -P ~/tmp
-# Rscript --verbose --vanilla ~/tmp/install-irkernel.R
-# rm ~/tmp/install-irkernel.R
-
-# # Clean up conda
-# conda activate base
-# conda clean --all --yes
-
-# echo "List of conda environments now on your system"
-# conda info --envs
-
-# # Turn off conda
-# wget https://raw.githubusercontent.com/jarvisrob/set-up-mac/master/conda-off-bash.sh -P ~/bin
-# wget https://raw.githubusercontent.com/jarvisrob/set-up-mac/master/conda-off-zsh.sh -P ~/bin
-# source ~/bin/conda-off-bash.sh
 
 
 # Configure Git
@@ -257,22 +159,24 @@ git config --global alias.ss 'status -s'
 git config --global alias.dm diff 
 git config --global alias.ds 'diff --staged'
 
-echo "... Done"
-
 
 # VS Code extensions
+echo "Installing VS Code extensions"
 code --install-extension ms-python.python
-code --install-extension scala-lang.scala
-code --install-extension paiqo.databricks-vscode
+code --install-extension ms-python.vscode-pylance
+code --install-extension ms-python.debugpy
+code --install-extension ms-python.isort
+code --install-extension databricks.databricks
+code --install-extension mtxr.sqltools
+code --install-extension databricks.sqltools-databricks-driver
+code --install-extension mhutchie.git-graph
+code --install-extension donjayamanne.githistory
+code --install-extension hashicorp.terraform
+code --install-extension redhat.vscode-yaml
+code --install-extension dracula-theme.theme-dracula
+code --install-extension pkief.material-icon-theme
+code --install-extension gruntfuggly.todo-tree
 
-
-# Azure CLI extensions
-az extension add -n azure-cli-ml
-
-
-# Terminal prompt and styles
-echo "Installing terminal prompt and styles ..."
-sudo gem install colorls
 
 # iTerm2 themes
 echo "Installing iTerm2 themes ..."
@@ -373,11 +277,6 @@ echo "Dialog settings"
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 
-# echo "SizeUp settings"
-# # Start SizeUp at login
-# defaults write com.irradiatedsoftware.SizeUp StartAtLogin -bool true
-
-
 # Dot files
 # References:
 #   - https://www.davidculley.com/dotfiles/
@@ -427,18 +326,24 @@ echo "Downloading .vimrc"
 wget https://raw.githubusercontent.com/jarvisrob/set-up-mac/master/.vimrc -P ~
 cat ~/.vimrc
 
-# # .condarc (Conda), not yet M1 supported
-# echo "Downloading .condarc"
-# wget https://raw.githubusercontent.com/jarvisrob/set-up-mac/master/.condarc -P ~
-# cat ~/.condarc
 
 # Make Zsh the default shell
-echo 'Making Homebrew installed and updated Zsh the default shell. You will be prompted for root password.'
+echo 'Making the Homebrew-installed and updated version of Zsh into the default shell. You will be prompted for root password.'
 chsh -s /opt/hombrew/bin/zsh
 
 
+# Apps that need to be installed manually
+echo ""
+echo "NOTE: The following apps need to be installed manually:"
+echo "- Magnet"
+echo "- Poly Lens"
+echo "- Goodnotes"
+echo ""
+
+
 # End
-echo "Mac set-up completed--enjoy!"
-echo "Close terminal and re-open to get everything"
-echo "It's probably a good idea to reboot now"
+echo "-- Mac set-up completed. Enjoy! --"
+echo "IMPORTANT: Close terminal and re-open to get everything"
+echo "IMPORTANT: It's probably a good idea to reboot fisrt anyway"
+echo "--"
 echo ""

@@ -1,7 +1,5 @@
 # Aliases - Source as many as possible from ~/.aliases, add here *only* those that are specific to Zsh
 source ~/.aliases
-# alias condaon='source conda-on-zsh.sh'
-# alias condaoff='source conda-off-zsh.sh'
 
 # Command history: https://unix.stackexchange.com/questions/389881/history-isnt-preserved-in-zsh
 HISTFILE=~/.zsh_history
