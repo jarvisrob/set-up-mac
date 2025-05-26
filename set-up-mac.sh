@@ -1,52 +1,53 @@
 #!/bin/bash
-echo "Running script using bash version:"
-echo $BASH_VERSION
+# echo "Running script using bash version:"
+# echo $BASH_VERSION
 
-# If you're not me, *really* think before running this script--it's all on you
+# # If you're not me, *really* think before running this script--it's all on you
 
-# Before running, install Xcode command line tools via:
-# $ xcode-select —-install
+# # Before running, install Xcode command line tools via:
+# # $ xcode-select —-install
 
-echo "-- Shell script to set-up a new Mac --"
-echo "IMPORTANT: You are warned - this is *my* set-up, *my* way!"
-echo "IMPORTANT: You must also have *already installed Xcode command-line tools* with: $ xcode-select —-install"
+# echo "-- Shell script to set-up a new Mac --"
+# echo "IMPORTANT: You are warned - this is *my* set-up, *my* way!"
+# echo "IMPORTANT: You must also have *already installed Xcode command-line tools* with: $ xcode-select —-install"
 
-read -p "Press <return> to continue or ^C to quit now"
+# read -p "Press <return> to continue or ^C to quit now"
 
-echo "Ok. Here we go ..."
-
-
-# Make my directories
-echo "Making my directories under HOME (~), i.e. under $HOME"
-mkdir ~/bin
-mkdir ~/lab
-mkdir ~/tmp
-echo "Directory structure under HOME (~) is now:"
-ls -d */
+# echo "Ok. Here we go ..."
 
 
-# SSH keys
-echo "Generating SSH keys"
-echo "You will be prompted for email, file location (enter for default) and passphrase"
-read -p "Enter SSH key email: " SSH_EMAIL
-ssh-keygen -t ed25519 -C "$SSH_EMAIL"
-echo "Adding SSH private key to ssh-agent and storing passphrase in keychain"
-echo "You will be prompted for the passphrase again"
-eval "$(ssh-agent -s)"
-cat <<EOT >> ~/.ssh/config
-Host *
-	AddKeysToAgent yes
-	UseKeychain yes
-	IdentityFile ~/.ssh/id_ed25519
-
-EOT
-ssh-add --apple-use-keychain ~/.ssh/id_ed25519
-read -p "Copy key details and then press <return> to continue"
+# # Make my directories
+# echo "Making my directories under HOME (~), i.e. under $HOME"
+# mkdir ~/bin
+# mkdir ~/lab
+# mkdir ~/tmp
+# echo "Directory structure under HOME (~) is now:"
+# ls -d */
 
 
-# Install Homebrew itself
-echo "Installing Homebrew ..."
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# # SSH keys
+# echo "Generating SSH keys"
+# echo "You will be prompted for email, file location (enter for default) and passphrase"
+# read -p "Enter SSH key email: " SSH_EMAIL
+# ssh-keygen -t ed25519 -C "$SSH_EMAIL"
+# echo "Adding SSH private key to ssh-agent and storing passphrase in keychain"
+# echo "You will be prompted for the passphrase again"
+# eval "$(ssh-agent -s)"
+# cat <<EOT >> ~/.ssh/config
+# Host *
+# 	AddKeysToAgent yes
+# 	UseKeychain yes
+# 	IdentityFile ~/.ssh/id_ed25519
+
+# EOT
+# ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+# read -p "Copy key details and then press <return> to continue"
+
+
+# # Install Homebrew itself
+# echo "Installing Homebrew ..."
+# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 brew update
 brew upgrade
 echo "Done ..."
